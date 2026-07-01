@@ -13,10 +13,10 @@
     <DefineConstants>$(DefineConstants);JETBRAINS_ANNOTATIONS</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Label="Nuget">
-    <Title>osu!framework</Title>
-    <PackageId>ppy.osu.Framework</PackageId>
-    <PackageReleaseNotes>Automated release.</PackageReleaseNotes>
-    <PackageTags>osu game framework</PackageTags>
+    <Title>osu!framework Artleysmzg's fork</Title>
+    <PackageId>ppy.osu.Framework.smzg</PackageId>
+    <PackageReleaseNotes>A custom fork of osu!framework for custom things</PackageReleaseNotes>
+    <PackageTags>osu game framework fork</PackageTags>
   </PropertyGroup>
   <ItemGroup Label="Package References">
     <PackageReference Include="FFmpeg.AutoGen" Version="4.3.0.1" />

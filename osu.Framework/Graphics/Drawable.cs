@@ -632,6 +632,14 @@ namespace osu.Framework.Graphics
             }
         }
 
+        public Vector2 Offset = new Vector2(0, 0);
+
+        public Vector2 frameOffset = new Vector2(0, 0);
+
+        public Vector2 ScrollFactor = new Vector2(1, 1);
+
+        public DrawableCamera? Camera;
+
         private Axes relativePositionAxes;
 
         /// <summary>
@@ -1604,7 +1612,7 @@ namespace osu.Framework.Graphics
         {
             DrawInfo di = Parent?.DrawInfo ?? new DrawInfo(null);
 
-            Vector2 pos = DrawPosition + AnchorPosition;
+            Vector2 pos = (DrawPosition + AnchorPosition) - (Camera?.Scroll ?? Vector2.Zero) * ScrollFactor - Offset - frameOffset;
             Vector2 drawScale = DrawScale;
 
             if (Parent != null)

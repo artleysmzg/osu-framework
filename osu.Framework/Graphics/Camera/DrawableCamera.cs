@@ -17,6 +17,7 @@ using osu.Framework.Graphics.Shaders;
 using osu.Framework.Utils;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Layout;
+using System.Numerics;
 
 namespace osu.Framework.Graphics
 {
@@ -28,7 +29,11 @@ namespace osu.Framework.Graphics
         }
 
         public Vector2 Scroll = new Vector2(0, 0);
-        public float Zoom = 1f;
+        public float Zoom
+        {
+            get => Scale.X;
+            set => Scale = new Vector2(value);
+        }
 
     }
 }

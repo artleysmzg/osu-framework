@@ -17,7 +17,6 @@ using osu.Framework.Graphics.Shaders;
 using osu.Framework.Utils;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Layout;
-using System.Numerics;
 
 namespace osu.Framework.Graphics
 {

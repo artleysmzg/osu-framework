@@ -638,7 +638,7 @@ namespace osu.Framework.Graphics
 
         public Vector2 ScrollFactor = new Vector2(1, 1);
 
-        public DrawableCamera? Camera;
+        public DrawableCamera Camera;
 
         private Axes relativePositionAxes;
 

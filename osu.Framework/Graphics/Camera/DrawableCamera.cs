@@ -28,11 +28,8 @@ namespace osu.Framework.Graphics
         }
 
         public Vector2 Scroll = new Vector2(0, 0);
-        public float Zoom
-        {
-            get => Scale.X;
-            set => Scale = new Vector2(value);
-        }
+        public Vector2 TargetOffset = new Vector2(0, 0);
+        
 
     }
 }

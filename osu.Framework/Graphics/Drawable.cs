@@ -1612,7 +1612,7 @@ namespace osu.Framework.Graphics
         {
             DrawInfo di = Parent?.DrawInfo ?? new DrawInfo(null);
 
-            Vector2 pos = (DrawPosition + AnchorPosition) - (Camera?.Scroll ?? Vector2.Zero) * ScrollFactor - Offset - frameOffset;
+            Vector2 pos = (DrawPosition + AnchorPosition) - (Camera?.Scroll ?? Vector2.Zero + Camera?.TargetOffset ?? Vector2.Zero) * ScrollFactor - Offset - frameOffset;
             Vector2 drawScale = DrawScale;
 
             if (Parent != null)

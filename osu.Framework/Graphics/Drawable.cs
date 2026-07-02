@@ -9,6 +9,7 @@ using osu.Framework.Allocation;
 using osu.Framework.Extensions.TypeExtensions;
 using osu.Framework.Graphics.Colour;
 using osu.Framework.Graphics.Containers;
+using osu.Framework.Graphics.Camera;
 using osu.Framework.Graphics.Effects;
 using osu.Framework.Graphics.Primitives;
 using osu.Framework.Graphics.Transforms;
@@ -634,7 +635,7 @@ namespace osu.Framework.Graphics
 
         public Vector2 Offset = new Vector2(0, 0);
 
-        public Vector2 frameOffset = new Vector2(0, 0);
+        public Vector2 FrameOffset = new Vector2(0, 0);
 
         public Vector2 ScrollFactor = new Vector2(1, 1);
 
@@ -1137,7 +1138,7 @@ namespace osu.Framework.Graphics
         /// <summary>
         /// The origin of this <see cref="Drawable"/> expressed in relative coordinates from the top-left corner of <see cref="DrawRectangle"/>.
         /// </summary>
-        /// <exception cref="InvalidOperationException">If <see cref="Origin"/> is <see cref="osu.Framework.Graphics.Anchor.Custom"/>.</exception>
+        /// <exception cref="InvalidOperationException">If <see cref="Origin"/> is <see cref="Anchor.Custom"/>.</exception>
         public Vector2 RelativeOriginPosition
         {
             get
@@ -1612,7 +1613,7 @@ namespace osu.Framework.Graphics
         {
             DrawInfo di = Parent?.DrawInfo ?? new DrawInfo(null);
 
-            Vector2 pos = (DrawPosition + AnchorPosition) - (Camera?.Scroll ?? Vector2.Zero + Camera?.TargetOffset ?? Vector2.Zero) * ScrollFactor - Offset - frameOffset;
+            Vector2 pos = (DrawPosition + AnchorPosition) - (Camera?.Scroll ?? Vector2.Zero + Camera?.TargetOffset ?? Vector2.Zero) * ScrollFactor - Offset - FrameOffset;
             Vector2 drawScale = DrawScale;
 
             if (Parent != null)
@@ -1835,7 +1836,7 @@ namespace osu.Framework.Graphics
                 if (nextLayout.Conditions?.Invoke(this, memberInvalidation) != false)
                     anyInvalidated |= nextLayout.Invalidate();
 
-                NextLayoutIteration:
+            NextLayoutIteration:
                 nextLayout = nextLayout.Next;
             }
 
@@ -2676,7 +2677,7 @@ namespace osu.Framework.Graphics
         Colour = 1 << 3,
 
         /// <summary>
-        /// <see cref="Graphics.DrawNode.ApplyState"/> has to be invoked on all old draw nodes.
+        /// <see cref="DrawNode.ApplyState"/> has to be invoked on all old draw nodes.
         /// This <see cref="Invalidation"/> flag never propagates to children.
         /// </summary>
         DrawNode = 1 << 4,

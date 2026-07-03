@@ -14,7 +14,5 @@ namespace osu.Framework.Graphics.Camera
         }
 
         public Vector2 Scroll = new Vector2(0, 0);
-        public Vector2 TargetOffset = new Vector2(0, 0);
-
     }
 }
